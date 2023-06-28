@@ -1,0 +1,242 @@
+html{
+    box-sizing: border-box;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+#bod{
+    background-color: beige;
+}
+
+/*top of the page stuff*/
+#topPage{
+   display: flex;
+   background-color: black;
+   flex-direction: column;
+   max-width: 1000px;
+   margin:auto; 
+}
+
+#topHeader{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: beige;
+    text-decoration: underline;
+    font-size: 50px;
+
+}
+
+#rules{
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: beige;
+    text-decoration: underline;
+    font-size: 30px;
+    margin-top: -10px;
+}
+
+/*round and scores stuff*/
+#scoreAndRoundLine{
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    min-height: 200px;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 10px;
+}
+
+#player{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    background: black;
+    color: beige;
+    margin-top: 20px;
+}
+
+#playName{
+    display: flex;
+    align-self: center;
+    font-size: 40px;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+#playScore{
+    margin-top: -30px;
+    display: flex;
+    align-self: center;
+    font-size: 80px;
+}
+
+#roundNum{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    background: black;
+    color: beige;
+    margin-top: 20px;
+}
+
+#text{
+    display: flex;
+    align-self: center;
+    font-size: 40px;
+    text-decoration: underline;
+    margin-top: 10px;
+
+}
+
+#num{
+    margin-top: -30px;
+    font-size: 80px;
+    align-self: center;
+}
+
+#com{
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+    background: black;
+    color: beige;
+    margin-top: 20px;
+}
+
+#computerName{
+    display: flex;
+    align-self: center;
+    font-size: 40px;
+    text-decoration: underline;
+    margin-top: 10px;
+}
+
+#comScore{
+    display: flex;
+    align-self: center;
+    font-size: 80px;
+    margin-top: -30px;
+}
+
+/*input stuff*/
+#askingForInput{
+    display: flex;
+    font-size: 30px;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 20px;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px ;
+    justify-content: center;
+}
+
+#buttons{
+    display: flex;
+    max-width: 1000px;
+    margin: auto;
+    min-height: 200px;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+#rock{
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    background-color: gray;
+}
+
+#paper{
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    background-color: gray;
+}
+
+#scissors{
+    width: 200px;
+    height: 200px;
+    font-size: 50px;
+    background-color: gray;
+}
+
+#scissors:hover{
+    background-color: rgb(85, 85, 85);
+}
+
+#paper:hover{
+    background-color: rgb(85, 85, 85);
+}
+
+#rock:hover{
+    background-color: rgb(85, 85, 85);
+}
+
+#paper:active{
+    border: solid 5px red;
+}
+
+#scissors:active{
+    border: solid 5px red;
+}
+
+#rock:active{
+    border: solid 5px red;
+}
+
+/*recap of the round*/
+
+#roundRecap{
+    display: flex;
+    max-width: 650px;
+    margin: auto;
+    justify-content: center;
+    font-size: 30px;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    margin-top: 20px;  
+}
+
+/*final Results stuff*/
+
+#Results{
+    display: flex;
+    max-width: 650px;
+    margin: auto;
+    justify-content: center;
+    font-size: 30px;
+    border-top: solid black 2px;
+    border-bottom: solid black 2px;
+    margin-top: 20px;  
+}
+
+/*Page restart*/
+
+#endGamePrompt {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    font-size: 30px;
+    margin-top: 20px;
+    background-color: black;
+    color: white;
+}
+
+#endGamePrompt:hover {
+    background-color: rgb(68, 68, 68);
+}
+
+#endGamePrompt:active {
+    border: solid 5px red;
+}

@@ -1,12 +1,69 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"/>
     <title>Game!</title>
 </head>
-<body>
+
+<body id="bod">
+
     <script src="javascript.js"></script>
-    <h1>Rock, Paper, Scissors.</h1>
+
+    <div id="topPage">
+        <h1 id="topHeader">Rock, Paper, Scissors.</h1>
+        <p id="rules">best of 5 game.</p>
+    </div>
+
+
+    <div id="scoreAndRoundLine">
+
+        <div id="player">
+            <h3 id="playName">Player</h3>
+            <p id="playScore">0</p>
+        </div>
+
+        <div id="roundNum">
+            <h3 id="text">Round:</h3>
+            <p id="num">1</p>
+        </div>
+
+        <div id="com">
+            <h3 id="computerName">Computer</h3>
+            <p id="comScore">0</p>
+        </div>
+
+    </div>
+
+    <p id="askingForInput">please select one of the below</p>
+
+    <div id="buttons">
+        <button id="rock">Rock</button>
+        <button id="paper">paper</button>
+        <button id="scissors">scissors</button>
+    </div>
+
+    <p id="roundRecap"></p>
+    
+    <!-- <div id="scores">
+        <p id="playScore">0</p>
+        <p id="comScore">0</p>
+    </div>--> 
+
+    <p id="Results"></p>
+
+    <button id="endGamePrompt">Reset Game</button>
+<!-- 
+   <div id="playAgain">
+        <button id="yes"></button>
+        <button id="no"></button>
+    </div>
+
+--> 
+
 </body>
+
 </html>

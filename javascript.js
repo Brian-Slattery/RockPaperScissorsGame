@@ -1,63 +1,73 @@
-let playerScore = 0;
-let computerScore = 0;
-const choices = ["rock", "paper", "scissors"];
+document.addEventListener('DOMContentLoaded', () => {
+    let playerScore = 0;
+    let computerScore = 0;
+    let round = 0;
 
-function getComputerChoice() {
-    let randomPick = Math.floor(Math.random() * choices.length);
-    return choices[randomPick];
-}
+    const choices = ["rock", "paper", "scissors"];
+    const buttons = document.getElementById('buttons');
+    const playScore = document.getElementById("playScore");
+    const comScore = document.getElementById("comScore");
+    const roundRecap = document.getElementById("roundRecap");
+    const roundNum = document.getElementById("num");
+    const finalScore = document.getElementById("Results");
+    const restart = document.getElementById("endGamePrompt")
 
-function getPlayerChoice() {
-    let playerprompt;
-    while (!choices.includes((playerprompt = prompt("Please pick a rock, paper or scissors").toLowerCase())));
-    return playerprompt;
-}
-
-function gameRound(playerSelection, computerSelection) {
-    switch (playerSelection + "-" + computerSelection) {
-        case "rock-scissors":
-        case "paper-rock":
-        case "scissors-paper":
-            playerScore++;
-            return `You picked ${playerSelection}, I picked ${computerSelection}. Point for you!`;
-        case "rock-paper":
-        case "paper-scissors":
-        case "scissors-rock":
-            computerScore++;
-            return `You picked ${playerSelection}, I picked ${computerSelection}. Point for me!`;
-        default:
-            return `You picked ${playerSelection}, I picked ${computerSelection}. It's a tie!`;
-    }
-}
-
-function showScores() {
-    console.log(`Player score: ${playerScore}`);
-    console.log(`Computer score: ${computerScore}`);
-}
-
-function game() {
-    for (let round = 0; round < 5; round++) {
-        let playerSelection = getPlayerChoice();
-        let computerSelection = getComputerChoice();
-        console.log(gameRound(playerSelection, computerSelection));
-        showScores();
-    }
-    replay();
-}
-
-function replay() {
-    let answer;
-    while (!["yes", "y", "n", "no"].includes((answer = prompt("Do you want to play again? (yes/no)").toLowerCase()))) {
+    function getComputerChoice() {
+        let randomPick = Math.floor(Math.random() * choices.length);
+        return choices[randomPick];
     }
 
-    if (["yes", "y"].includes(answer)) {
-        playerScore = 0;
-        computerScore = 0;
-        game();
-    } else if (["no", "n"].includes(answer)) {
-        console.log("Thanks for playing!");
+    function gameRound(playerSelection, computerSelection) {
+        switch (playerSelection + "-" + computerSelection) {
+            case "rock-scissors":
+            case "paper-rock":
+            case "scissors-paper":
+                playerScore++;
+                playScore.textContent = playerScore;
+                roundRecap.textContent = `You picked ${playerSelection}, I picked ${computerSelection}. Point for you!`
+                break;
+            case "rock-paper":
+            case "paper-scissors":
+            case "scissors-rock":
+                computerScore++;
+                comScore.textContent = computerScore;
+                roundRecap.textContent = `You picked ${playerSelection}, I picked ${computerSelection}. Point for me!`
+                break;
+            default:
+                roundRecap.textContent = `You picked ${playerSelection}, I picked ${computerSelection}. Null Round!`
+                break;
+        }
+
+        round++;
+        roundNum.textContent = round;
+
+        if (round >= 5) {
+            buttons.removeEventListener('click', playGameRound);
+            if (playerScore > computerScore){
+                finalScore.textContent = "you win!";
+            }
+            else if (computerScore > playerScore){
+                finalScore.textContent = "I win!";
+            }
+            else {
+                finalScore.textContent ="we tied!";
+            }
+        }
     }
-}
 
+    function playGameRound(event) {
+        const clickedElement = event.target;
+        const playerChoice = clickedElement.id;
+        
+        if (choices.includes(playerChoice)) {
+            const computerChoice = getComputerChoice();
+            gameRound(playerChoice, computerChoice);
+        }
+    }
 
-game();
+    buttons.addEventListener('click', playGameRound);
+
+    document.getElementById('endGamePrompt').addEventListener('click', function() {
+        window.location.href = 'index.html';
+    });
+});

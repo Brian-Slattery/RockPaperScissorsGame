@@ -23,6 +23,8 @@ document.addEventListener('DOMContentLoaded', () => {
             case "paper-rock":
             case "scissors-paper":
                 playerScore++;
+                round++;
+                roundNum.textContent = round;
                 playScore.textContent = playerScore;
                 roundRecap.textContent = `You picked ${playerSelection}, I picked ${computerSelection}. Point for you!`
                 break;
@@ -30,6 +32,8 @@ document.addEventListener('DOMContentLoaded', () => {
             case "paper-scissors":
             case "scissors-rock":
                 computerScore++;
+                round++;
+                roundNum.textContent = round;
                 comScore.textContent = computerScore;
                 roundRecap.textContent = `You picked ${playerSelection}, I picked ${computerSelection}. Point for me!`
                 break;
@@ -38,8 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 break;
         }
 
-        round++;
-        roundNum.textContent = round;
 
         if (round >= 5) {
             buttons.removeEventListener('click', playGameRound);
